@@ -30,8 +30,9 @@ public class Util {
     }
 // jdbc:mysql://localhost:3306
 
-
+//+ "?useSSL=false"
     public static SessionFactory getSessionFactory() {
+
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
@@ -44,8 +45,7 @@ public class Util {
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 settings.put(Environment.HBM2DDL_AUTO, "");
-                configuration.setProperties(settings);
-                configuration.addAnnotatedClass(User.class);
+                configuration.setProperties(settings).addAnnotatedClass(User.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
