@@ -13,10 +13,10 @@ public class Main {
         userService.saveUser("Рубик", "Кондратенко", (byte) 1);
         userService.saveUser("Гена", "Крокодил", (byte) 100);
         userService.saveUser("Чебурашка", "Апельсиновый", (byte) 30);
-//        userService.getAllUsers();
-        userService.removeUserById(2);
+        userService.getAllUsers();
+        userService.removeUserById(1);
         userService.cleanUsersTable();
-        userService.dropUsersTable();
+//        userService.dropUsersTable();
 
     }
 }
